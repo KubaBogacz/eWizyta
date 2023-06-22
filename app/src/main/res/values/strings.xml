@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">eWizyta</string>
+    <string name="email">E-mail</string>
+    <string name="password">Hasło</string>
+    <string name="lastName">Nazwisko</string>
+    <string name="name">Imię</string>
+    <string name="phone">Numer telefonu</string>
+    <string name="birthDate">Data urodzin</string>
+    <string name="gender">Płeć</string>
+
+    <string-array name="gender_array">
+        <item>Mężczyzna</item>
+        <item>Kobieta</item>
+        <item>Inna</item>
+    </string-array>
+
+    <string name="koszyk">Koszyk</string>
+    <string name="kod_weryfikacyjny">Numer PWZ</string>
+</resources>

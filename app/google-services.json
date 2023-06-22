@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "641473579229",
+    "firebase_url": "https://ewizyta-845de-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "ewizyta-845de",
+    "storage_bucket": "ewizyta-845de.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:641473579229:android:a418b7a679ae57b9127334",
+        "android_client_info": {
+          "package_name": "com.ewizyta"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "641473579229-ouk0ddeqkbvtui16tebpohpan802n5ka.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDAKpeUm8W1Spo9vvqyWOk1DArWx5aQhe0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "641473579229-ouk0ddeqkbvtui16tebpohpan802n5ka.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
