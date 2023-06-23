@@ -7,6 +7,12 @@
     android:background="@color/bgGray"
     tools:context=".Home">
 
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:layout_constraintTop_toBottomOf="@+id/homeContainer"
+        app:layout_constraintBottom_toTopOf="@+id/navigationBarHome" />
 
     <fragment
         android:id="@+id/homeContainer"
