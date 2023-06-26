@@ -34,7 +34,7 @@ class DoctorAdapter(private val doctorList: List<Doctor>) : RecyclerView.Adapter
         fun bind(doctor: Doctor) {
             // Ustaw odpowiednie wartości dla poszczególnych elementów widoku
             doctorName.text = doctor.name
-            doctorSpecialization.text = doctor.specialization
+            doctorSpecialization.text = "Diabetology"
             // Dodaj obsługę kliknięcia przycisku connectButton, jeśli jest wymagane
             connectButton.setOnClickListener {
                 // Logika obsługi kliknięcia
