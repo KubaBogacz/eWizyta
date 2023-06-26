@@ -1,0 +1,11 @@
+<!-- res/drawable/doctor_item_background.xml -->
+
+<shape xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    tools:ignore="ExtraText">
+    <solid android:color="#FFFFFF" /> <!-- Kolor wypełnienia tła -->
+    <stroke
+        android:width="2dp" /><!-- Grubość linii obramowania -->
+    android:color="#FF0000" /> <!-- Kolor obramowania -->
+    <corners android:radius="8dp" /> <!-- Zaokrąglenie rogów -->
+</shape>

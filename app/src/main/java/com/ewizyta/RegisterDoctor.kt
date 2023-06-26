@@ -84,7 +84,6 @@ class RegisterDoctor : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
             val PWZNumber = binding.PWZNumber.text.toString()
 
 
-
             if (email.isNotEmpty() && password.isNotEmpty() && name.isNotEmpty() && lastName.isNotEmpty() && phone.isNotEmpty()
                 && birthDate.isNotEmpty() && gender.isNotEmpty() && PWZNumber.isNotEmpty()) {
                 if (PWZNumber == "123456") {
