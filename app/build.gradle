@@ -75,6 +75,12 @@ dependencies {
     // I'm not sure if this is needed
     implementation 'androidx.navigation:navigation-compose:2.7.0-beta01'
     implementation 'androidx.compose.ui:ui-tooling:1.5.0-beta02'
+    implementation group: 'io.agora.rtc', name: 'full-sdk', version: '4.2.0'
 //    implementation 'com.github.AgoraIO-Community:Android-UIKit:v2.0.0'
 }
 
+//    sourceSets {
+//        main {
+//            jniLibs.srcDirs = ['src/main/jniLibs']
+//        }
+//    }

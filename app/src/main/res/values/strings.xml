@@ -7,6 +7,8 @@
     <string name="phone">Numer telefonu</string>
     <string name="birthDate">Data urodzin</string>
     <string name="gender">Płeć</string>
+    <string name="agora_app_id">55146f2408a645e0884d9cb5c04a81c9</string>
+    <string name="agora_access_token"></string>
 
     <string-array name="gender_array">
         <item>Mężczyzna</item>

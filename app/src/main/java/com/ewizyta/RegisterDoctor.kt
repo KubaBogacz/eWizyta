@@ -2,9 +2,12 @@ package com.ewizyta
 
 import android.app.DatePickerDialog
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.widget.*
+import android.widget.DatePicker
+import android.widget.PopupMenu
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
 import com.ewizyta.databinding.ActivityRegisterDoctorBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.DatabaseReference
@@ -81,10 +84,11 @@ class RegisterDoctor : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
             val PWZNumber = binding.PWZNumber.text.toString()
 
 
+
             if (email.isNotEmpty() && password.isNotEmpty() && name.isNotEmpty() && lastName.isNotEmpty() && phone.isNotEmpty()
                 && birthDate.isNotEmpty() && gender.isNotEmpty() && PWZNumber.isNotEmpty()) {
-                if (PWZNumber == "qwerty") {
-                    if (email.contains('@')) {
+                if (PWZNumber == "123456") {
+                    if (email.contains('@') && email.contains('.') && email.length > 5) {
                         firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener{authResult ->
                             if (authResult.isSuccessful) {
                                 val uid = authResult.result.user!!.uid
@@ -103,7 +107,7 @@ class RegisterDoctor : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
                         Toast.makeText(this, "Niewłaściwy e-mail!", Toast.LENGTH_SHORT).show()
                     }
                 } else {
-                    Toast.makeText(this, "Niewłaściwy kod weryfikacyjny kuriera! Skonsultuj się z pracodawcą.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Niewłaściwy numer PWZ!", Toast.LENGTH_SHORT).show()
                 }
             } else {
                 Toast.makeText(this, "Uzupełnij wszystkie pola!", Toast.LENGTH_SHORT).show()

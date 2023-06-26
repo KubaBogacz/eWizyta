@@ -49,8 +49,8 @@ class Login : AppCompatActivity() {
                             if (userId != null) {
                                 firebaseDatabase.reference.addListenerForSingleValueEvent(object : ValueEventListener {
                                     override fun onDataChange(snapshot: DataSnapshot) {
-                                        val isCourier = snapshot.child("Doctors").child(userId).exists()
-                                        if (isCourier) {
+                                        val isDoctor = snapshot.child("Doctors").child(userId).exists()
+                                        if (isDoctor) {
                                             FirebaseMessaging.getInstance().token.addOnCompleteListener(
                                                 OnCompleteListener { task ->
                                                     if (!task.isSuccessful) {
@@ -59,7 +59,7 @@ class Login : AppCompatActivity() {
                                                     }
                                                     val token = task.result
                                                     val uid = FirebaseAuth.getInstance().currentUser?.uid
-                                                    val userTokenRef = FirebaseDatabase.getInstance().getReference("Couriers/$uid/fcmToken")
+                                                    val userTokenRef = FirebaseDatabase.getInstance().getReference("Doctors/$uid/fcmToken")
                                                     Log.d(TAG, "FCM Token: $token")
                                                 })
                                             val intent = Intent(this@Login, DoctorHome::class.java)
