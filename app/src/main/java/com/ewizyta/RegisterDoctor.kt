@@ -103,7 +103,7 @@ class RegisterDoctor : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
                         Toast.makeText(this, "Niewłaściwy e-mail!", Toast.LENGTH_SHORT).show()
                     }
                 } else {
-                    Toast.makeText(this, "Niewłaściwy kod weryfikacyjny kuriera! Skonsultuj się z pracodawcą.", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, "Niewłaściwy numer prawa wykonywania zawodu! Skonsultuj się z pracodawcą.", Toast.LENGTH_SHORT).show()
                 }
             } else {
                 Toast.makeText(this, "Uzupełnij wszystkie pola!", Toast.LENGTH_SHORT).show()
