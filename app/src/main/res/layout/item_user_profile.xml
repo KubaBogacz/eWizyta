@@ -14,34 +14,34 @@
         android:clipToOutline="true">
 
         <ImageView
-            android:id="@+id/doctorImage"
+            android:id="@+id/userImage"
             android:layout_width="110dp"
             android:layout_height="110dp"
             android:src="@drawable/baseline_person_24"
             android:scaleType="centerCrop" />
 
         <TextView
-            android:id="@+id/doctorName"
+            android:id="@+id/userName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_toRightOf="@id/doctorImage"
+            android:layout_toRightOf="@id/userImage"
             android:layout_marginStart="70dp"
             android:layout_marginEnd="16dp"
-            android:layout_alignTop="@id/doctorImage"
+            android:layout_alignTop="@id/userImage"
             android:text="John Doe"
             android:textSize="18sp"
             android:textColor="#000000" />
 
         <TextView
-            android:id="@+id/doctorSpecialization"
+            android:id="@+id/userStatus"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/doctorName"
-            android:layout_toRightOf="@id/doctorImage"
+            android:layout_below="@id/userName"
+            android:layout_toRightOf="@id/userImage"
             android:layout_marginTop="8dp"
-            android:layout_marginStart="70dp"
+            android:layout_marginStart="85dp"
             android:layout_marginEnd="16dp"
-            android:text="Cardiologist"
+            android:text="Pacjent"
             android:textSize="14sp"
             android:textColor="#808080" />
 
@@ -49,8 +49,8 @@
             android:id="@+id/connectButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/doctorSpecialization"
-            android:layout_toRightOf="@id/doctorImage"
+            android:layout_below="@id/userStatus"
+            android:layout_toRightOf="@id/userImage"
             android:layout_marginTop="8dp"
             android:layout_marginStart="65dp"
             android:layout_marginLeft="30dp"
