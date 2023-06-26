@@ -7,7 +7,6 @@ import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.ewizyta.R
 
 class DoctorAdapter(private val doctorList: List<Doctor>) : RecyclerView.Adapter<DoctorAdapter.ViewHolder>() {
 
@@ -34,7 +33,7 @@ class DoctorAdapter(private val doctorList: List<Doctor>) : RecyclerView.Adapter
         fun bind(doctor: Doctor) {
             // Ustaw odpowiednie wartości dla poszczególnych elementów widoku
             doctorName.text = doctor.name
-            doctorSpecialization.text = doctor.specialization
+            doctorSpecialization.text = doctor.specialisation
             // Dodaj obsługę kliknięcia przycisku connectButton, jeśli jest wymagane
             connectButton.setOnClickListener {
                 // Logika obsługi kliknięcia
