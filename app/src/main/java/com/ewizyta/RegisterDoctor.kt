@@ -79,16 +79,17 @@ class RegisterDoctor : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
             val birthDate = binding.birthdate.text.toString()
             val gender = binding.gender.text.toString()
             val PWZNumber = binding.PWZNumber.text.toString()
+            val specialization = binding.specialization.text.toString()
 
 
             if (email.isNotEmpty() && password.isNotEmpty() && name.isNotEmpty() && lastName.isNotEmpty() && phone.isNotEmpty()
-                && birthDate.isNotEmpty() && gender.isNotEmpty() && PWZNumber.isNotEmpty()) {
+                && birthDate.isNotEmpty() && gender.isNotEmpty() && PWZNumber.isNotEmpty() && specialization.isNotEmpty()) {
                 if (PWZNumber == "qwerty") {
                     if (email.contains('@')) {
                         firebaseAuth.createUserWithEmailAndPassword(email, password).addOnCompleteListener{authResult ->
                             if (authResult.isSuccessful) {
                                 val uid = authResult.result.user!!.uid
-                                val user = User(name, lastName, email, password, phone, birthDate, gender)
+                                val user = Doctor(name, lastName, email, password, phone, birthDate, gender, specialization)
                                 databaseReference.child(uid).setValue(user).addOnCompleteListener{
                                     if(it.isSuccessful) {
                                         val intent = Intent(this, Login::class.java)

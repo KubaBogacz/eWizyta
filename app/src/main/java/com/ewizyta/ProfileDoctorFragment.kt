@@ -14,6 +14,7 @@ import android.widget.ImageView
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import com.ewizyta.databinding.FragmentProfileBinding
+import com.ewizyta.databinding.FragmentDoctorProfileBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import com.google.firebase.database.R
@@ -24,13 +25,13 @@ import com.squareup.picasso.Picasso
 private const val ARG_PARAM1 = "param1"
 private const val ARG_PARAM2 = "param2"
 
-class ProfileFragment : Fragment() {
+class ProfileDoctorFragment : Fragment() {
 
     private var param1: String? = null
     private var param2: String? = null
     private var userType: String = "null"
 
-    private lateinit var binding: FragmentProfileBinding
+    private lateinit var binding: FragmentDoctorProfileBinding
     private lateinit var database: DatabaseReference
     private lateinit var storageReference: StorageReference
     private lateinit var profilePictureRef: StorageReference
@@ -48,7 +49,7 @@ class ProfileFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        binding = FragmentProfileBinding.inflate(layoutInflater)
+        binding = FragmentDoctorProfileBinding.inflate(layoutInflater)
         val currentUser = FirebaseAuth.getInstance().currentUser
         val currentUserUid = currentUser!!.uid
         FirebaseDatabase.getInstance().reference.child("Users").child(currentUserUid)
@@ -57,7 +58,7 @@ class ProfileFragment : Fragment() {
                     if (snapshot.exists()) {
                         database = snapshot.ref
                         userType = "user"
-                        val userData = snapshot.getValue(User::class.java)
+                        val userData = snapshot.getValue(Doctor::class.java)
                         updateProfileUI(userData)
 
                         val fileName = "profileImage_$currentUserUid.jpg"
@@ -72,7 +73,7 @@ class ProfileFragment : Fragment() {
                                     if (snapshot.exists()) {
                                         database = snapshot.ref
                                         userType = "doctor"
-                                        val userData = snapshot.getValue(User::class.java)
+                                        val userData = snapshot.getValue(Doctor::class.java)
                                         updateProfileUI(userData)
 
                                         val fileName = "profileImage_$currentUserUid.jpg"
@@ -119,7 +120,7 @@ class ProfileFragment : Fragment() {
                 .setPositiveButton("Usuń") { dialog, which ->
                     val user = FirebaseAuth.getInstance().currentUser
                     user?.let {
-                        val dbRef = FirebaseDatabase.getInstance().getReference("Users").child(it.uid)
+                        val dbRef = FirebaseDatabase.getInstance().getReference("Doctors").child(it.uid)
                         dbRef.removeValue().addOnCompleteListener { task ->
                             if (task.isSuccessful) {
                                 it.delete()
@@ -159,7 +160,7 @@ class ProfileFragment : Fragment() {
 //                profileImage.setImageURI(imageUri)
                 if (imageUri != null) {
                     val user = FirebaseAuth.getInstance().currentUser
-                    val dbRef = FirebaseDatabase.getInstance().getReference("Users").child(user!!.uid)
+                    val dbRef = FirebaseDatabase.getInstance().getReference("Doctors").child(user!!.uid)
                     val currentUserUid = user!!.uid
                     val fileName = "profileImage_$currentUserUid.jpg"
                     storageReference = FirebaseStorage.getInstance().getReference("profileImages/$fileName")
@@ -178,13 +179,14 @@ class ProfileFragment : Fragment() {
         }
     }
 
-    private fun updateProfileUI(userData: User?) {
+    private fun updateProfileUI(userData: Doctor?) {
         var data = "Imię: " + userData?.name.toString() + "\n"
         data += "Nazwisko: " + userData?.lastName.toString()  + "\n"
         data += "E-mail: " + userData?.email.toString()  + "\n"
         data += "Telefon: " + userData?.phone.toString() + "\n"
         data += "Data urodzenia: " + userData?.birthDate.toString() + "\n"
         data += "Płeć: " + userData?.gender.toString() + "\n"
+        data += "Specjalizacja: " + userData?.specialization.toString() + "\n"
         binding.userData.text = data
 
     }

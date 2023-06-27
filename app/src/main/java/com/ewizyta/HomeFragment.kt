@@ -49,8 +49,9 @@ class HomeFragment : Fragment() {
           val phone = userSnapshot.child("phone").getValue(String::class.java)
           val birthDate = userSnapshot.child("birthDate").getValue(String::class.java)
           val gender = userSnapshot.child("gender").getValue(String::class.java)
+          val specialization = userSnapshot.child("specialization").getValue(String::class.java)
 
-          val doctor = Doctor(name, lastName, email, password, phone, birthDate, gender)
+          val doctor = Doctor(name, lastName, email, password, phone, birthDate, gender, specialization)
           doctorList.add(doctor)
         }
 

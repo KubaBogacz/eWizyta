@@ -10,22 +10,22 @@ import android.util.Log
 import android.widget.DatePicker
 import android.widget.PopupMenu
 import android.widget.TextView
-import com.ewizyta.databinding.ActivityEditProfileBinding
+import com.ewizyta.databinding.ActivityDoctorEditProfileBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
 import java.text.SimpleDateFormat
 import java.util.*
 
-class EditProfileActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
+class EditDoctorProfileActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListener {
 
-    private lateinit var binding: ActivityEditProfileBinding
+    private lateinit var binding: ActivityDoctorEditProfileBinding
     private lateinit var firebaseAuth: FirebaseAuth
     private lateinit var databaseReference : DatabaseReference
     private val calendar = Calendar.getInstance()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        binding = ActivityEditProfileBinding.inflate(layoutInflater)
+        binding = ActivityDoctorEditProfileBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
         firebaseAuth = FirebaseAuth.getInstance()
@@ -38,7 +38,7 @@ class EditProfileActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListe
                 override fun onDataChange(dataSnapshot: DataSnapshot) {
                     if (dataSnapshot.exists()) {
                         databaseReference = dataSnapshot.ref
-                        val userData = dataSnapshot.getValue(User::class.java)
+                        val userData = dataSnapshot.getValue(Doctor::class.java)
                         getUserData(userData)
                     } else {
                         FirebaseDatabase.getInstance().reference.child("Doctors").child(currentUserUID)
@@ -46,7 +46,7 @@ class EditProfileActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListe
                                 override fun onDataChange(snapshot: DataSnapshot) {
                                     if (snapshot.exists()) {
                                         databaseReference = snapshot.ref
-                                        val userData = snapshot.getValue(User::class.java)
+                                        val userData = snapshot.getValue(Doctor::class.java)
                                         getUserData(userData)
                                     }
                                 }
@@ -110,9 +110,10 @@ class EditProfileActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListe
             val phone = binding.phone.text.toString()
             val birthDate = binding.birthdate.text.toString()
             val gender = binding.gender.text.toString()
+            val specialization = binding.specialization.text.toString()
 
             if (email.isNotEmpty() && password.isNotEmpty() && name.isNotEmpty() && lastName.isNotEmpty() && phone.isNotEmpty()
-                && birthDate.isNotEmpty() && gender.isNotEmpty()) {
+                && birthDate.isNotEmpty() && gender.isNotEmpty() && specialization.isNotEmpty()) {
                 if (email.contains('@')) {
                     val updates = mapOf<String, Any>(
                         "name" to name,
@@ -121,7 +122,8 @@ class EditProfileActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListe
                         "phone" to phone,
                         "password" to password,
                         "birthDate" to birthDate,
-                        "gender" to gender
+                        "gender" to gender,
+                        "specialization" to specialization
                     )
                     currentUser.updateEmail(email)
                     currentUser.updatePassword(password)
@@ -139,7 +141,7 @@ class EditProfileActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListe
         findViewById<TextView>(R.id.birthdate).text = dateFormat.format(calendar.time)
     }
 
-    private fun getUserData(userData: User?) {
+    private fun getUserData(userData: Doctor?) {
         binding.name.text = Editable.Factory.getInstance().newEditable(userData?.name.toString())
         binding.lastName.text = Editable.Factory.getInstance().newEditable(userData?.lastName.toString())
         binding.email.text = Editable.Factory.getInstance().newEditable(userData?.email.toString())
@@ -147,6 +149,7 @@ class EditProfileActivity : AppCompatActivity(), DatePickerDialog.OnDateSetListe
         binding.phone.text = Editable.Factory.getInstance().newEditable(userData?.phone.toString())
         binding.birthdate.text = Editable.Factory.getInstance().newEditable(userData?.birthDate.toString())
         binding.gender.text = Editable.Factory.getInstance().newEditable(userData?.gender.toString())
+        binding.specialization.text = Editable.Factory.getInstance().newEditable(userData?.specialization.toString())
     }
 
 }

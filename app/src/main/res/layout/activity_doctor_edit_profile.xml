@@ -5,18 +5,17 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/bgGray"
-    tools:context=".Register">
+    tools:context=".EditDoctorProfileActivity">
 
     <TextView
         android:id="@+id/login_message"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:text="Zarejestruj się"
+        android:text="Edytuj dane"
         android:textSize="32dp"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayout4"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.284"
         tools:layout_editor_absoluteX="0dp" />
 
     <com.google.android.material.textfield.TextInputLayout
@@ -33,7 +32,7 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:hint="@string/email"
-            android:textSize="16dp" />
+            android:textSize="20dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -52,10 +51,10 @@
             android:id="@+id/password"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="textPassword"
             android:background="@color/white"
             android:hint="@string/password"
-            android:inputType="textPassword"
-            android:textSize="16sp" />
+            android:textSize="20dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -73,7 +72,7 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:hint="@string/lastName"
-            android:textSize="16dp" />
+            android:textSize="20dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -83,7 +82,6 @@
         android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@+id/textInputLayout3"
         app:layout_constraintEnd_toEndOf="parent"
-        android:layout_marginTop="18dp"
         app:layout_constraintStart_toStartOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
@@ -92,7 +90,7 @@
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:hint="@string/name"
-            android:textSize="16dp" />
+            android:textSize="20dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -110,8 +108,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
+            android:inputType="number"
             android:hint="@string/phone"
-            android:textSize="16dp" />
+            android:textSize="20dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -131,7 +130,7 @@
             android:focusable="false"
             android:hint="@string/birthDate"
             android:inputType="none"
-            android:textSize="16dp" />
+            android:textSize="20dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -151,7 +150,7 @@
             android:focusable="false"
             android:hint="@string/gender"
             android:inputType="none"
-            android:textSize="16dp" />
+            android:textSize="20dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -159,28 +158,10 @@
         android:id="@+id/textInputLayout8"
         android:layout_width="330dp"
         android:layout_height="wrap_content"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout7"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout7">
-
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/PWZNumber"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/white"
-            android:hint="@string/kod_weryfikacyjny"
-            android:inputType="text"
-            android:textSize="16dp" />
-
-    </com.google.android.material.textfield.TextInputLayout>
-
-    <com.google.android.material.textfield.TextInputLayout
-        android:id="@+id/textInputLayout9"
-        android:layout_width="330dp"
-        android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout8">
+        tools:ignore="NotSibling">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/specialization"
@@ -189,24 +170,22 @@
             android:background="@color/white"
             android:hint="Specjalizacja"
             android:inputType="text"
-            android:textSize="16dp" />
+            android:textSize="20dp" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/buttonEditData"
         android:layout_width="200dp"
-        android:layout_height="50dp"
+        android:layout_height="60dp"
         android:gravity="center"
-        android:text="Zarejestruj się"
+        android:text="Zapisz"
         android:textAllCaps="false"
         android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textInputLayout7"
-        app:layout_constraintVertical_bias="0.826" />
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout7" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
