@@ -128,7 +128,7 @@ class EditDoctorProfileActivity : AppCompatActivity(), DatePickerDialog.OnDateSe
                     currentUser.updateEmail(email)
                     currentUser.updatePassword(password)
                     databaseReference.updateChildren(updates)
-                    val intent = Intent(this, Home::class.java)
+                    val intent = Intent(this, DoctorHome::class.java)
                     startActivity(intent)
                 }
             }
